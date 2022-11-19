@@ -5,7 +5,7 @@ metadata:
   namespace: vip-customer-app
 spec:
   selector:
-    istio: ingressgateway # update with the correct istio ingress
+    istio: ingress # update with the correct istio ingress
   servers:
   - port:
       number: 80

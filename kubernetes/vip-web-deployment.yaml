@@ -15,9 +15,9 @@ spec:
       containers:
       - name: vip-customer-web
         image: kennedyuche/vip-customer-web:v1
-        resources:
-          limits:
-            memory: "128Mi"
-            cpu: "500m"
+        # resources:
+        #   limits:
+        #     memory: "128Mi"
+        #     cpu: "500m"
         ports:
         - containerPort: 3000
