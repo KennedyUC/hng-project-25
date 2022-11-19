@@ -29,5 +29,5 @@ jobs:
           az login --service-principal -u ${{ secrets.AZ_CLIENT_ID }} -p ${{ secrets.AZ_CLIENT_SECRET }} --tenant ${{ secrets.AZ_TENANT_ID }}
           az aks get-credentials --resource-group ${{ secrets.AZ_RESOURCE_GROUP }} --name ${{ secrets.AZ_CLUSTER }}
           cd kubernetes
-          kubectl apply -f -
+          kubectl apply -f kubernetes/
           kubectl rollout restart deployment vip-customer-web -n vip-customer-app
