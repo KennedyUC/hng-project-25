@@ -9,11 +9,8 @@ spec:
   gateways:
   - vip-customer-web
   http:
-  - match:
-    - uri:
-        exact: /
-    route:
+  - route:
     - destination:
-        host: vip-customer-web
+        host: vip-customer-web.vip-customer-app.svc.cluster.local
         port:
           number: 3000
