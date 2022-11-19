@@ -8,9 +8,11 @@ on:
     branches:
       - main
       - dev
+      
 jobs:
   build-push-images:
     runs-on: ubuntu-20.04
+
     steps:
       - name: Checkout GitHub Action
         uses: actions/checkout@v2
