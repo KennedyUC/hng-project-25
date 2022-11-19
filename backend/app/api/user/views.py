@@ -1,23 +1,14 @@
-
-from fastapi import APIRouter, Depends
-from typing import Any, List 
-from sqlalchemy import Session 
-from sqlmodel.ext.asyncio.session import AsyncSession
-from app.db.models import User
-import fastapi_users
+from fastapi import APIRouter
+from db.models.user import User
+from .schemas import APIKey, Signup, SignupResponse, Login, LoginResponse
 
 router = APIRouter()
 
-current_user = fastapi_users.current_user()
 
 @router.get("/my_details/")
-def get_current_user(current_user: User = Depends(current_user)):
+def get_current_user(current_user: User):
     return current_user
 
-
-from uuid import UUID
-from fastapi import APIRouter
-from .schemas import APIKey, Signup, SignupResponse, Login, LoginResponse
 
 router = APIRouter()
 
@@ -45,4 +36,3 @@ async def get_user_api_key():
 
     # Send key string
     return userAPIKey
-

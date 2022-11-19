@@ -1,4 +1,3 @@
-
 from datetime import datetime
 from typing import Optional
 from uuid import UUID
@@ -14,6 +13,7 @@ class UserSchema(BaseModel):
 
     class Config:
         orm_mode = True
+
 
 from uuid import UUID
 from pydantic import BaseModel
@@ -45,4 +45,3 @@ class LoginResponse(BaseModel):
     first_name: str
     last_name: int
     email: str
-
