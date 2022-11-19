@@ -29,7 +29,7 @@ jobs:
         uses: docker/build-push-action@v3
         with:
           context: ./frontend
-          push: true
+          load: true
           tags: vip-customer-web:v1
       - name: Deploy via SSH
         uses: appleboy/ssh-action@master
