@@ -25,13 +25,9 @@ jobs:
           docker push ${{ secrets.DOCKERHUB_USERNAME }}/vip-customer-web:v1
       
       - name: Login to Azure
-        uses: azure/login@v1
-        with:
-          client-id: ${{ secrets.AZ_CLIENT_ID }}
-          tenant-id: ${{ secrets.AZ_TENANT_ID }}
-          subscription-id: ${{ secrets.AZ_SUBSCRIPTION_ID }}
-          script: |
-            az aks get-credentials --resource-group ${{ secrets.AZ_RESOURCE_GROUP }} --name ${{ secrets.AZ_CLUSTER }}
+        run: |
+          az login --service-principal -u ${{ secrets.AZ_CLIENT_ID }} -p ${{ secrets.AZ_CLIENT_SECRET }} --tenant ${{ secrets.AZ_TENANT_ID }}
+          az aks get-credentials --resource-group ${{ secrets.AZ_RESOURCE_GROUP }} --name ${{ secrets.AZ_CLUSTER }}
 
       - name: Setup kubectl and Deploy to k8s
         uses: azure/setup-kubectl@v3
