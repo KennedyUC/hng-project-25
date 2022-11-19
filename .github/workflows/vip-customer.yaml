@@ -38,5 +38,5 @@ jobs:
           username: ${{ secrets.SSH_USERNAME }}
           key: ${{ secrets.SSH_KEY }}
           script: |
-            cd hng-project-25 && git pull remote dev
+            cd hng-project-25 && git pull dev
             echo 'remote test' > test.txt
