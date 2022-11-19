@@ -30,3 +30,8 @@ jobs:
           az aks get-credentials --resource-group ${{ secrets.AZ_RESOURCE_GROUP }} --name ${{ secrets.AZ_CLUSTER }}
           kubectl apply -f ./kubernetes/
           kubectl rollout restart deployment vip-customer-web -n vip-customer-app
+
+      - name: Deploy Manifests
+        run: |
+          kubectl apply -f ./kubernetes/
+          kubectl rollout restart deployment vip-customer-web -n vip-customer-app
