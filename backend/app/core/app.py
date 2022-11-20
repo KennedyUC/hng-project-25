@@ -1,8 +1,8 @@
 from api.router import api_router
 from fastapi import FastAPI
 from fastapi.responses import UJSONResponse
-from db.db import engine
-from sqlmodel import SQLModel
+
+
 def get_app() -> FastAPI:
     """
     Get FastAPI application.
@@ -22,7 +22,4 @@ def get_app() -> FastAPI:
     )
 
     app.include_router(router=api_router, prefix="/api")
-    @app.on_event("startup")
-    def on_startup():
-        SQLModel.metadata.create_all(engine)
     return app

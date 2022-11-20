@@ -4,7 +4,7 @@ import string
 from sqlalchemy import UniqueConstraint
 from sqlmodel import Field
 
-from common import UUIDModel, TimestampModel
+from .common import UUIDModel, TimestampModel
 
 
 def get_random_string(length):

@@ -1,11 +1,13 @@
 from db.models.common import TimestampModel, UUIDModel
 from sqlmodel import Field, SQLModel
 
-class User(UUIDModel, table=True):
+
+class User(UUIDModel, TimestampModel, table=True):
     __tablename__ = "users"
-    first_name: str 
+
+    first_name: str
     last_name: str
-    email: str = Field(primary_key=True)
+    email: str
     password: str
 
     def __repr__(self):
