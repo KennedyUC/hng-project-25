@@ -7,7 +7,6 @@ from sqlalchemy.ext.asyncio import AsyncSession
 
 
 class HistoryService:
-
     def __init__(self, session: AsyncSession = Depends(db_session)):
         self.session = session
 
@@ -20,15 +19,15 @@ class HistoryService:
         return new_history
 
     async def get_user_history(self, user_id: int, offset: int, limit: int):
-        user_history = await self.session.execute(select(History).where(user_id == user_id).offset(offset).limit(limit))
+        user_history = await self.session.execute(
+            select(History).where(user_id == user_id).offset(offset).limit(limit)
+        )
         if user_history:
             return user_history.scalars().fetchall()
 
         raise HTTPException(
-            status_code=status.HTTP_404_NOT_FOUND,
-            detail="User has no history"
+            status_code=status.HTTP_404_NOT_FOUND, detail="User has no history"
         )
-
 
     # async def clear_one_history(self, history_id: int, user_id: int):
 

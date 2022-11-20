@@ -1,49 +1,25 @@
 import React from "react";
-import { useEffect } from "react";
-import { Link } from "react-router-dom";
-import { Store } from "../store/contexts/AppContext";
-import { sayHello_a } from "../store/actions/appActions";
+// import { Navbar } from "../components/general";
+// import Footer from "../components/general/otherfooter/Footer";
+import LandingPage from "../components/landingpage/LandingPage";
+import { Navbar, Footer } from "components/general";
+// import Logout from "./Logout";
 
 const Home = () => {
-  const { greet, dispatch, changeTheme, theme } = Store();
-
-  useEffect(() => {
-    sayHello_a(dispatch);
-  }, []);
-
   return (
     <div>
-      <h1>Home Page</h1>
-      <h1>{greet}</h1>
+      <Navbar />
 
-      <button className="btn" onClick={changeTheme}>
-        change theme
-      </button>
+      <LandingPage />
+      <Footer />
 
-      <span>&nbsp;</span>
+      {/* <>
+        <Button variant="primary" onClick={() => setModalShow(true)}>
+          Logout
+        </Button>
 
-      <Link className="btn" to="/example">
-        Example page
-      </Link>
-
-      <h4 style={{ marginTop: "30px" }}>Theme is {theme ? "light" : "dark"}</h4>
-
-      <div>
-        <br />
-        <h3>Other Links</h3>
-        <Link className="btn" to="/dashboard">
-          Dashboard
-        </Link>
-        <Link className="btn" to="/docs">
-          Docs
-        </Link>
-        <Link className="btn" to="/docs/usage">
-          Usage
-        </Link>
-        <Link className="btn" to="/docs/somethingelse">
-          Something Else
-        </Link>
-      </div>
+        <Logout show={modalShow} onHide={() => setModalShow(false)} />
+      </> */}
     </div>
   );
 };
