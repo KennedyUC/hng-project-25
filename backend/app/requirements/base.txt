@@ -8,3 +8,4 @@ sqlmodel==0.0.6
 asyncpg==0.26.0
 alembic==1.8.1
 fastapi-pagination
+psycopg2-binary==2.9.5

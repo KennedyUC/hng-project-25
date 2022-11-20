@@ -3,12 +3,21 @@ import math
 
 
 class DataClass:
+    """
+    A dataclass that taskes an array of lists of dictionaries, 
+    sort out the data, calculate an average vip score and 
+    return unique profile(s)
+    """
 
     def __init__(self, data_list, **kwargs):
         self.kwargs = kwargs
         self.data_list = data_list
+         # making sure the argument passed is a list
+        if not isinstance(data_list, list):
+            return "Error: data list must be a list type"
 
     def initiate(self):
+        # a function that must be called to instantiate the class
         unique_list = self.extract_unique()
 
         cleaned_data = self.clean(unique_list)
@@ -16,6 +25,7 @@ class DataClass:
         return cleaned_data
 
     def extract_unique(self):
+        # a function that filters the data list and return the unique result(s)
         converts = []
 
         new_results = self.filter()
@@ -67,6 +77,8 @@ class DataClass:
         return clean_list
 
     def merge_occupations(self, pre_list):
+        # a function that merges the occupation for unique 
+        # users from many list(source)
         occupation = []
         for item in pre_list:
 
@@ -80,6 +92,8 @@ class DataClass:
         return set(occupation)
 
     def process_duplicate_age(self, pre_list):
+        # a function that calculates the average possible age
+        #  if the age for a user differs per source(list) 
 
         ages = [int(item['age']) for item in pre_list]
 

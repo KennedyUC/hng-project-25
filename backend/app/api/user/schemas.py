@@ -6,17 +6,14 @@ from pydantic import BaseModel
 
 
 class UserSchema(BaseModel):
-    id: Optional[UUID] = None
+    id: UUID
     first_name: str
     last_name: str
     email: str
+    password : str
 
     class Config:
         orm_mode = True
-
-
-from uuid import UUID
-from pydantic import BaseModel
 
 
 class APIKey(BaseModel):
@@ -26,7 +23,7 @@ class APIKey(BaseModel):
 
 class Signup(BaseModel):
     first_name: str
-    last_name: int
+    last_name: str
     email: str
     password: str
 
